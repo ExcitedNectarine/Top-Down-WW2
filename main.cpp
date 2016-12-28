@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
     try
     {
         Application::loadConfig("Resources/Config.xml");
-        bool fullscreen = Application::getConfigMap()["screen"]["fullscreen"] == "On" ? true : false;
+        bool fullscreen = Application::getConfigMap()["screen"]["fullscreen"] == "On";
         auto size = Tools::splitText(Application::getConfigMap()["screen"]["size"], 'x');
         int width = atoi(size[0].c_str());
         int height = atoi(size[1].c_str());
