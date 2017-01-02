@@ -205,7 +205,7 @@ void GameState::update()
             SDL_Rect rect = enemy->get()->getRect();
             SDL_QueryTexture(texture, nullptr, nullptr, &rect.w, &rect.h);
             bodies.push_back(std::make_tuple(texture, rect, enemy->get()->getAngle()));
-            weapon_pickups.emplace_back(enemy->get()->getWeapon(), enemy->get()->getRect());
+            weapon_pickups.emplace_back(enemy->get()->getWeapon(), rect);
             enemy = enemies.erase(enemy);
         }
         else
