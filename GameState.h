@@ -10,7 +10,7 @@
 #include "AmmoPickup.h"
 #include "HealthPickup.h"
 #include <memory>
-#include <experimental\filesystem>
+#include <experimental/filesystem>
 
 /**
 * This state is the state in which the actual game runs. It handles the levels,
