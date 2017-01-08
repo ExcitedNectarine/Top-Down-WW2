@@ -1,8 +1,8 @@
 <screen>
     <fullscreen>Off</fullscreen>
-    <size>1280x720</size>
+    <size>1024x576</size>
 </screen>
 
 <audio>
-    <volume>0</volume>
+    <volume>3</volume>
 </audio>

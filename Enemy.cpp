@@ -47,10 +47,19 @@ void Enemy::update(Level& level, Player& player, std::vector<std::shared_ptr<Ene
     if (!alerted)
     {
         // This checks if the player is in this enemy's line of sight.
-        if (std::all_of(level.getAllSolids().begin(), level.getAllSolids().end(), [&](const SDL_Rect& solid) {return !SDL_IntersectRectAndLine(&solid, &x1, &y1, &x2, &y2); }))
+        if (std::all_of(level.getAllSolids().begin(), level.getAllSolids().end(), [&](const SDL_Rect& solid) { return !SDL_IntersectRectAndLine(&solid, &x1, &y1, &x2, &y2); }))
         {
-            Mix_PlayChannel(-1, shout, 0);
-            alerted = true;
+            int view = Tools::angleBetweenPoints(
+                (rect.x + (rect.w / 2)),
+                (rect.y + (rect.h / 2)),
+                player.getCentre().x,
+                player.getCentre().y
+            ) - 180;
+            if (view > -90 || view < -270)
+            {
+                Mix_PlayChannel(-1, shout, 0);
+                alerted = true;
+            }
         }
     }
     else
